@@ -1,9 +1,27 @@
-name: Deploy
-on: [push]
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+
+permissions:
+  pages: write
+  id-token: write
+
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v3
-      - uses: actions/deploy-pages@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+        
+      - name: 上传构建产物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .  # 上传当前目录所有文件
+          
+      - name: 部署到 GitHub Pages
+        uses: actions/deploy-pages@v3
