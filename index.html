@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态Hello World - GitHub Pages</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 动态Hello World</h1>
+        
+        <div class="greeting-display">
+            <div id="greetingMessage">Hello World!</div>
+            <div class="info" id="timestamp"></div>
+            <div class="info" id="visitorInfo">部署在 GitHub Pages</div>
+        </div>
+        
+        <div class="controls">
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="ja">日本語</option>
+                <option value="zh">中文</option>
+                <option value="ko">한국어</option>
+            </select>
+            
+            <input type="text" id="nameInput" placeholder="输入你的名字" value="Visitor">
+            
+            <button onclick="updateGreeting()">更新问候语</button>
+            <button onclick="getRandomGreeting()">随机问候</button>
+        </div>
+        
+        <div class="cicd-info">
+            <strong>GitHub Pages 部署信息:</strong>
+            <div>最后更新时间: <span id="updateTime"></span></div>
+            <div>仓库: <span id="repoName"></span></div>
+            <div>访问方式: 通过 GitHub Pages 服务</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
